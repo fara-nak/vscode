@@ -21,7 +21,7 @@ PACKAGE_LIST="
     x11-xserver-utils \
     xdg-utils \
     fbautostart \
-	at-spi2-core \
+    at-spi2-core \
     xterm \
     eterm \
     tilix \
@@ -33,10 +33,10 @@ PACKAGE_LIST="
     libx11-dev \
     libxkbfile-dev \
     libsecret-1-dev \
+    libgdm-dev \
     libnotify4 \
     libnss3 \
     libxss1 \
-    libgdm1 \
     libasound2 \
     xfonts-base \
     xfonts-terminus \

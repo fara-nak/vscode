@@ -15,7 +15,7 @@ COPY library-scripts/desktop-lite-debian.sh /tmp/library-scripts/
 RUN apt-get update && export DEBIAN_FRONTEND=noninteractive \
 	&& bash /tmp/library-scripts/desktop-lite-debian.sh \
 	&& sed -i -E 's/.*Terminal.*/    [exec] (Terminal) { tilix -w ~ -e $(readlink -f \/proc\/$$\/exe) -il } <>\n	[exec] (Start Code - OSS) { tilix -T "Code - OSS Build" -e bash \/workspaces\/vscode*\/scripts\/code.sh } <>/' /home/node/.fluxbox/menu \
-	&& if [ "${INSTALL_FIREFOX}" = "true" ]; then apt-get -y install --no-install-recommends firefox-esr; fi \
+	&& if [ "${INSTALL_FIREFOX}" = "true" ]; then apt-get -y install firefox-esr; fi \
 	&& apt-get clean -y && rm -rf /var/lib/apt/lists/*
 
 # VNC options
