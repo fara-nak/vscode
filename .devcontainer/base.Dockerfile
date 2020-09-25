@@ -3,10 +3,10 @@
 # Licensed under the MIT License. See https://go.microsoft.com/fwlink/?linkid=2090316 for license information.
 #-------------------------------------------------------------------------------------------------------------
 
-# *******************************************************************************************
-# ** This file generates the ghcr.io/chuxel/devcontainers/code-oss image referenced in     **
-# ** devcontainer.json. To iterate on it, change devcontainer.json to use this Dockerfile. **
-# *******************************************************************************************
+# **********************************************************************************************************
+# ** This file generates the "mcr.microsoft.com/vscode/devcontainers/repos/microsoft/vscode" image that's **
+# ** referenced in devcontainer.json. To iterate on it, change devcontainer.json to use this Dockerfile.  **
+# **********************************************************************************************************
 
 FROM mcr.microsoft.com/vscode/devcontainers/typescript-node:0-12
 
