@@ -29,5 +29,6 @@ jobs:
           else
             IMAGE_TAG=${GIT_BRANCH}
           fi
-          bash .devcontainer/build-image.sh ${{secrets.IMAGE_REGISTRY_PAT}} ${{secrets.IMAGE_REGISTRY_USER}} ${{secrets.BASE_IMAGE_REPOSITORY_PATH}}/devcontainers/vscode ${IMAGE_TAG}
+          echo ${{secrets.IMAGE_REGISTRY_PAT}} | docker login ghcr.io -u ${{secrets.IMAGE_REGISTRY_USER}} --password-stdin
+          bash .devcontainer/build-image.sh ${{secrets.BASE_IMAGE_REPOSITORY_PATH}}/devcontainers/vscode ${IMAGE_TAG}
 
