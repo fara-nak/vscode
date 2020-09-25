@@ -21,6 +21,7 @@ PACKAGE_LIST="
     x11-xserver-utils \
     xdg-utils \
     fbautostart \
+	at-spi2-core \
     xterm \
     eterm \
     tilix \

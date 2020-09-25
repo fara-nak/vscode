@@ -12,8 +12,8 @@
 	"overrideCommand": false,
 	"runArgs": [
 		"--init",
-		// seccomp=unconfined is required for Chrome sandboxing
-		"--security-opt", "seccomp=unconfined"
+		"--security-opt", "seccomp=unconfined",
+		"--ipc=host"
 	],
 
 	"settings": {
