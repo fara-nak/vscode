@@ -20,17 +20,14 @@ jobs:
         id: build_and_push
         run: |
           set -e
-
           GIT_BRANCH=$(echo "${{ github.ref }}" | grep -oP 'refs/(heads|tags)/\K(.+)')
           if [ "$GIT_BRANCH" == "" ]; then
               GIT_BRANCH=master
           fi
-
           if [ "${GIT_BRANCH}" == "master" ]; then
             IMAGE_TAG="latest"
           else
             IMAGE_TAG=${GIT_BRANCH}
           fi
-
-          bash .devcontainer/build-image.sh ${{secrets.IMAGE_REGISTRY_PAT}} ${{secrets.IMAGE_REGISTRY_USER}} ${{secrets.BASE_IMAGE_REPOSITORY_PATH}}/devcontainers/vscode ${{IMAGE_TAG}}
+          bash .devcontainer/build-image.sh ${{secrets.IMAGE_REGISTRY_PAT}} ${{secrets.IMAGE_REGISTRY_USER}} ${{secrets.BASE_IMAGE_REPOSITORY_PATH}}/devcontainers/vscode ${IMAGE_TAG}
 
