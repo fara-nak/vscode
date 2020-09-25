@@ -1,18 +1,18 @@
 {
 	"name": "Code - OSS",
 
-	"image": "ghcr.io/chuxel/devcontainers/code-oss:latest",
 	// Uncomment this line and comment out the "image" to iterate on the container
 	// "dockerFile": "base.Dockerfile",
+	"image": "ghcr.io/chuxel/devcontainers/code-oss:latest",
 
+	"workspaceMount": "source=${localWorkspaceFolder},target=/home/node/workspace/vscode,type=bind,consistency=cached",
+	"workspaceFolder": "/home/node/workspace/vscode",
 	"overrideCommand": false,
 	"runArgs": [
 		"--init",
 		"--security-opt", "seccomp=unconfined",
 		"--ipc=host"
 	],
-	"workspaceMount": "source=${localWorkspaceFolder},target=/home/node/workspace/vscode,type=bind,consistency=cached",
-	"workspaceFolder": "/home/node/workspace/vscode",
 
 	"settings": {
 		// zsh is also available
