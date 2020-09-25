@@ -1,14 +1,10 @@
 {
 	"name": "Code - OSS",
-	"build": {
-		"dockerfile": "Dockerfile",
-		"args": {
-			"MAX_VNC_RESOLUTION": "1920x1080x16",
-			"TARGET_VNC_RESOLUTION": "1280x768",
-			"TARGET_VNC_PORT": "5901",
-			"TARGET_NOVNC_PORT": "6080",
-		}
-	},
+
+	"image": "ghcr.io/chuxel/vscode:latest",
+	// Uncomment this line and comment out the "image" to iterate on the container
+	// "dockerFile": "base.Dockerfile",
+
 	"overrideCommand": false,
 	"runArgs": [
 		"--init",
