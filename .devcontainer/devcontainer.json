@@ -1,7 +1,7 @@
 {
 	"name": "Code - OSS",
 
-	"image": "ghcr.io/chuxel/vscode:latest",
+	"image": "ghcr.io/chuxel/devcontainers/code-oss:latest",
 	// Uncomment this line and comment out the "image" to iterate on the container
 	// "dockerFile": "base.Dockerfile",
 
