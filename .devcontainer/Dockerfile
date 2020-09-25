@@ -3,7 +3,7 @@
 # Licensed under the MIT License. See https://go.microsoft.com/fwlink/?linkid=2090316 for license information.
 #-------------------------------------------------------------------------------------------------------------
 
-FROM ghcr.io/chuxel/vscode:lastest
+FROM ghcr.io/chuxel/vscode:latest
 
 # VNC options
 ARG MAX_VNC_RESOLUTION=1920x1080x16
