@@ -37,3 +37,4 @@ ENV DBUS_SESSION_BUS_ADDRESS="autolaunch:" \
 
 ENTRYPOINT ["/usr/local/share/desktop-init.sh"]
 CMD ["sleep", "infinity"]
+
