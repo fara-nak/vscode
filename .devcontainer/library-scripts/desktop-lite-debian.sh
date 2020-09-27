@@ -63,7 +63,7 @@ fi
 # Determine the appropriate non-root user
 if [ "${USERNAME}" = "auto" ] || [ "${USERNAME}" = "automatic" ]; then
     USERNAME=""
-    POSSIBLE_USERS=("vscode", "node", "codespace", "$(awk -v val=1000 -F ":" '$3==val{print $1}' /etc/passwd)")
+    POSSIBLE_USERS=("vscode" "node" "codespace" "$(awk -v val=1000 -F ":" '$3==val{print $1}' /etc/passwd)")
     for CURRENT_USER in ${POSSIBLE_USERS[@]}; do
         if id -u ${CURRENT_USER} > /dev/null 2>&1; then
             USERNAME=${CURRENT_USER}
@@ -172,7 +172,7 @@ fi
 
 xrandr --fb \${RESOLUTION} --dpi \${DPI} > /dev/null 2>&1
 
-if [ \$? -ne 0 ] && [ IGNORE_ERROR != "true" ]; then
+if [ \$? -ne 0 ] && [ "\${IGNORE_ERROR}" != "true" ]; then
     echo -e "\nFAILED TO SET RESOLUTION!\n"
     exit 1
 fi
@@ -208,7 +208,7 @@ startInBackgroundIfNotRunning()
 # Keep command running in background
 keepRunningInBackground()
 {
-    (\$2 bash -li -c "while :; do echo [\\\$(date)] Process started.; \$3; echo [\\\$(date)] Process exited!; sleep 5; done 2>&1" | sudoIf tee -a /tmp/\$1.log > /dev/null & echo "\$!" | sudoIf tee /tmp/\$1.pid > /dev/null)
+    (\$2 bash -c "while :; do echo [\\\$(date)] Process started.; \$3; echo [\\\$(date)] Process exited!; sleep 5; done 2>&1" | sudoIf tee -a /tmp/\$1.log > /dev/null & echo "\$!" | sudoIf tee /tmp/\$1.pid > /dev/null)
 }
 
 # Use sudo to run as root when required
@@ -259,7 +259,7 @@ startInBackgroundIfNotRunning "fluxbox" sudoUserIf "dbus-launch startfluxbox"
 startInBackgroundIfNotRunning "x11vnc" sudoIf "x11vnc -display \${DISPLAY:-:1} -rfbport \${VNC_PORT:-5901} -localhost -no6 -xkb -shared -forever -passwdfile /usr/local/etc/vscode-dev-containers/vnc-passwd"
 
 # Set resolution
-/usr/local/bin/set-resolution \${VNC_RESOLUTION:-1440x768} \${VNC_DPI:-96} true
+/usr/local/bin/set-resolution \${VNC_RESOLUTION:-1440x768} \${VNC_DPI:-96} true > /dev/null 2>&1
 
 # Spin up noVNC if installed and not runnning.
 if [ -d "/usr/local/novnc" ] && [ "\$(ps -ef | grep /usr/local/novnc/noVNC*/utils/launch.sh | grep -v grep)" = "" ]; then
